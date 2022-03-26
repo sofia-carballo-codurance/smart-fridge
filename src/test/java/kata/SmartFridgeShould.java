@@ -1,5 +1,6 @@
 package kata;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.mock;
@@ -7,10 +8,17 @@ import static org.mockito.Mockito.verify;
 
 class SmartFridgeShould {
 
+    private ItemRepository itemRepository;
+    private SmartFridge smartFridge;
+
+    @BeforeEach
+    void setUp() {
+        itemRepository = mock(ItemRepository.class);
+        smartFridge = new SmartFridge(itemRepository);
+    }
+
     @Test
     void signal_alert_fridge_door_is_opened() {
-        ItemRepository itemRepository = mock(ItemRepository.class);
-        SmartFridge smartFridge = new SmartFridge(itemRepository);
         smartFridge.signalFridgeDoorOpened();
 
         verify(itemRepository).alertDoorOpened();
@@ -18,8 +26,6 @@ class SmartFridgeShould {
 
     @Test
     void add_item_to_fridge() {
-        ItemRepository itemRepository = mock(ItemRepository.class);
-        SmartFridge smartFridge = new SmartFridge(itemRepository);
         smartFridge.scanAddedItem("Milk", "25/06/2022", "sealed");
 
         verify(itemRepository).addItem("Milk", "25/06/2022", "sealed");
@@ -27,8 +33,6 @@ class SmartFridgeShould {
 
     @Test
     void alert_door_fridge_is_closed() {
-        ItemRepository itemRepository = mock(ItemRepository.class);
-        SmartFridge smartFridge = new SmartFridge(itemRepository);
         smartFridge.signalFridgeDoorClosed();
 
         verify(itemRepository).alertDoorClosed();
