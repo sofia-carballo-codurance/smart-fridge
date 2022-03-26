@@ -6,6 +6,10 @@ public class ItemRepository {
         throw new UnsupportedOperationException();
     }
 
+    public void alertDoorClosed() {
+        throw new UnsupportedOperationException();
+    }
+
     public void addItem(String item, String expiryDate, String status) {
         throw new UnsupportedOperationException();
     }
