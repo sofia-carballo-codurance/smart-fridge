@@ -1,6 +1,7 @@
 package kata;
 
 public class SmartFridge implements Fridge {
+
     @Override
     public void setCurrentDate() {
         throw new UnsupportedOperationException();
