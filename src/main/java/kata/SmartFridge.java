@@ -30,7 +30,7 @@ public class SmartFridge implements Fridge {
 
     @Override
     public void simulateDayOver() {
-        throw new UnsupportedOperationException();
+        itemRepository.startDay();
     }
 
     @Override
