@@ -17,4 +17,8 @@ public class ItemRepository {
     public void startDay() {
         throw new UnsupportedOperationException();
     }
+
+    public void removeItem(String name) {
+        throw new UnsupportedOperationException();
+    }
 }

@@ -44,4 +44,11 @@ class SmartFridgeShould {
 
         verify(itemRepository).startDay();
     }
+
+    @Test
+    void withdraw_item_from_frige() {
+        smartFridge.scanRemovedItem("Milk");
+
+        verify(itemRepository).removeItem("Milk");
+    }
 }
