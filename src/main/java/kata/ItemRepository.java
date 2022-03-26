@@ -1,6 +1,6 @@
 package kata;
 
-public class ItemManager {
+public class ItemRepository {
 
     public void alertDoorOpened() {
         throw new UnsupportedOperationException();

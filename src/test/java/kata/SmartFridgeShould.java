@@ -9,10 +9,10 @@ class SmartFridgeShould {
 
     @Test
     void signalFridgeDoorOpened() {
-        ItemManager itemManager = mock(ItemManager.class);
-        SmartFridge smartFridge = new SmartFridge();
+        ItemRepository itemRepository = mock(ItemRepository.class);
+        SmartFridge smartFridge = new SmartFridge(itemRepository);
         smartFridge.signalFridgeDoorOpened();
 
-        verify(itemManager).alertDoorOpened();
+        verify(itemRepository).alertDoorOpened();
     }
 }

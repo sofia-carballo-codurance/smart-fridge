@@ -14,7 +14,7 @@ public class AcceptanceShould {
             Cheese: 31 days remaining
             """;
 
-        var smartFridge = new SmartFridge();
+        var smartFridge = new SmartFridge(new ItemRepository());
         smartFridge.signalFridgeDoorOpened();
         smartFridge.scanAddedItem("Milk", "21/10/21", "sealed");
         smartFridge.scanAddedItem("Cheese", "18/11/21", "sealed");

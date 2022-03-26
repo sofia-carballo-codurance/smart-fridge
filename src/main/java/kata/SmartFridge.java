@@ -2,6 +2,12 @@ package kata;
 
 public class SmartFridge implements Fridge {
 
+    private ItemRepository itemRepository;
+
+    public SmartFridge(ItemRepository itemRepository) {
+        this.itemRepository = itemRepository;
+    }
+
     @Override
     public void setCurrentDate() {
         throw new UnsupportedOperationException();
@@ -9,7 +15,7 @@ public class SmartFridge implements Fridge {
 
     @Override
     public void signalFridgeDoorOpened() {
-        throw new UnsupportedOperationException();
+        itemRepository.alertDoorOpened();
     }
 
     @Override
