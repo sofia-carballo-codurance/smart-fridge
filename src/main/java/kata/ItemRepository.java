@@ -13,4 +13,8 @@ public class ItemRepository {
     public void addItem(String item, String expiryDate, String status) {
         throw new UnsupportedOperationException();
     }
+
+    public void startDay() {
+        throw new UnsupportedOperationException();
+    }
 }

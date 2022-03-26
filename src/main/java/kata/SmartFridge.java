@@ -19,13 +19,13 @@ public class SmartFridge implements Fridge {
     }
 
     @Override
-    public void scanAddedItem(String name, String expiryDate, String status) {
-        itemRepository.addItem(name, expiryDate, status);
+    public void signalFridgeDoorClosed() {
+        itemRepository.alertDoorClosed();
     }
 
     @Override
-    public void signalFridgeDoorClosed() {
-        itemRepository.alertDoorClosed();
+    public void scanAddedItem(String name, String expiryDate, String status) {
+        itemRepository.addItem(name, expiryDate, status);
     }
 
     @Override

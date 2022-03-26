@@ -37,4 +37,11 @@ class SmartFridgeShould {
 
         verify(itemRepository).alertDoorClosed();
     }
+
+    @Test
+    void end_current_day() {
+        smartFridge.simulateDayOver();
+
+        verify(itemRepository).startDay();
+    }
 }
