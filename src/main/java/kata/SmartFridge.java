@@ -19,8 +19,8 @@ public class SmartFridge implements Fridge {
     }
 
     @Override
-    public void scanAddedItem(String name, String expiryDate, String opened) {
-        throw new UnsupportedOperationException();
+    public void scanAddedItem(String name, String expiryDate, String status) {
+        itemRepository.addItem(name, expiryDate, status);
     }
 
     @Override
