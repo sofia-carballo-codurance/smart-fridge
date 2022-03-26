@@ -35,7 +35,7 @@ public class SmartFridge implements Fridge {
 
     @Override
     public void scanRemovedItem(String name) {
-        throw new UnsupportedOperationException();
+        itemRepository.removeItem(name);
     }
 
     @Override
