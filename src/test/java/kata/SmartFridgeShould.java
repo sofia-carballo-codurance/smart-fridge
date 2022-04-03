@@ -55,6 +55,6 @@ public class SmartFridgeShould {
     @Test void
     end_current_day() {
         fridge.simulateDayOver();
-        verify(smartFridgeService).startNewDay("02/04/2022");
+        verify(smartFridgeService).startNewDay(fridge.currentDate);
     }
 }
