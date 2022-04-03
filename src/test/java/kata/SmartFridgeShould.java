@@ -31,4 +31,10 @@ public class SmartFridgeShould {
         fridge.signalFridgeDoorOpened();
         verify(smartFridgeService).openDoor();
     }
+
+    @Test void
+    alert_fridge_door_is_closed() {
+        fridge.signalFridgeDoorClosed();
+        verify(smartFridgeService).closeDoor();
+    }
 }
