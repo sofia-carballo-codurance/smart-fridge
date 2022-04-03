@@ -27,12 +27,12 @@ public class SmartFridge implements Fridge{
 
     @Override
     public void scanAddedItem(String name, String expiryDate, String status) {
-        smartFridgeRepository.addItem();
+        smartFridgeRepository.addItem(name, expiryDate, status);
     }
 
     @Override
     public void scanRemovedItem(String name) {
-        throw new UnsupportedOperationException();
+        smartFridgeRepository.removeItem(name);
     }
 
     @Override

@@ -43,6 +43,12 @@ public class SmartFridgeShould {
     @Test void
     add_item_to_fridge() {
         fridge.scanAddedItem("Milk", "10/04/2022", "sealed");
-        verify(smartFridgeRepository).addItem();
+        verify(smartFridgeRepository).addItem("Milk", "10/04/2022", "sealed");
+    }
+
+    @Test void
+    remove_item_from_fridge() {
+        fridge.scanRemovedItem("Milk");
+        verify(smartFridgeRepository).removeItem("Milk");
     }
 }
