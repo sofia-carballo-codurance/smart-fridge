@@ -8,4 +8,8 @@ public class SmartFridgeService {
     public void closeDoor() {
         throw new UnsupportedOperationException();
     }
+
+    public String startNewDay(String currentDate) {
+        throw new UnsupportedOperationException();
+    }
 }
