@@ -20,7 +20,7 @@ public class SmartFridge implements Fridge{
 
     @Override
     public void signalFridgeDoorClosed() {
-        throw new UnsupportedOperationException();
+        smartFridgeService.closeDoor();
     }
 
     @Override
