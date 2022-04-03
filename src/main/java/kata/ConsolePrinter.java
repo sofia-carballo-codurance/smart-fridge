@@ -1,8 +1,8 @@
 package kata;
 
-public class TerminalPrinter implements Printer {
+public class ConsolePrinter implements Printer {
     @Override
-    public String print() {
+    public String print(String line) {
         throw new UnsupportedOperationException();
     }
 }

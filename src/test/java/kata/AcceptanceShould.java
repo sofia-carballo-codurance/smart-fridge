@@ -1,21 +1,16 @@
 package kata;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.mockito.Mock;
+
+import static org.mockito.Mockito.verify;
 
 public class AcceptanceShould {
+    @Mock ConsolePrinter consolePrinter;
 
     @Test void
     display_fridge_items() {
-        String expectedOut = """
-            EXPIRED: Milk
-            Lettuce: 0 days remaining
-            Peppers: 1 day remaining
-            Cheese: 31 days remaining
-            """;
-
         var smartFridge = new SmartFridge(new SmartFridgeService(), new SmartFridgeRepository());
-        var printer = new TerminalPrinter();
         smartFridge.setCurrentDate("18/10/2021");
         smartFridge.signalFridgeDoorOpened();
         smartFridge.scanAddedItem("Milk", "21/10/21", "sealed");
@@ -48,6 +43,9 @@ public class AcceptanceShould {
         smartFridge.simulateDayOver();
         smartFridge.showDisplay();
 
-        assertEquals(expectedOut, printer.print());
+        verify(consolePrinter).print("EXPIRED: Milk");
+        verify(consolePrinter).print("Lettuce: 0 days remaining");
+        verify(consolePrinter).print("Peppers: 1 day remaining");
+        verify(consolePrinter).print("Cheese: 31 days remaining");
     }
 }

@@ -3,20 +3,26 @@ package kata;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class SmartFridgeShould {
     private SmartFridge fridge;
     private SmartFridgeService smartFridgeService;
     private SmartFridgeRepository smartFridgeRepository;
+    private ConsolePrinter printer;
+    private ItemsPrinter itemsPrinter;
 
     @BeforeEach
     void setUp() {
         smartFridgeService = mock(SmartFridgeService.class);
         smartFridgeRepository = mock(SmartFridgeRepository.class);
         fridge = new SmartFridge(smartFridgeService, smartFridgeRepository);
+        printer = mock(ConsolePrinter.class);
+        itemsPrinter = mock(ItemsPrinter.class);
     }
 
     @Test
@@ -56,5 +62,15 @@ public class SmartFridgeShould {
     end_current_day() {
         fridge.simulateDayOver();
         verify(smartFridgeService).startNewDay(fridge.currentDate);
+    }
+
+    @Test void
+    print_fridge_items() {
+        List<Item> items = new ArrayList<>();
+
+        when(SmartFridgeRepository.getItems()).thenReturn(items);
+        fridge.showDisplay();
+
+        verify(itemsPrinter).print(items);
     }
 }
