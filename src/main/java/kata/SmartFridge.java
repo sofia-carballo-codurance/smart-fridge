@@ -1,6 +1,10 @@
 package kata;
 
+import java.util.Date;
+
 public class SmartFridge implements Fridge{
+    public Date currentDate;
+
     @Override
     public void setCurrentDate(String currentDate) {
         throw new UnsupportedOperationException();
