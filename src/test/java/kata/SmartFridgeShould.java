@@ -13,8 +13,8 @@ public class SmartFridgeShould {
 
     @BeforeEach
     void setUp() {
-        fridge = new SmartFridge();
         smartFridgeService = mock(SmartFridgeService.class);
+        fridge = new SmartFridge(smartFridgeService);
     }
 
     @Test

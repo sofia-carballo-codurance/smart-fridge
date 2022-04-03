@@ -2,6 +2,11 @@ package kata;
 
 public class SmartFridge implements Fridge{
     public String currentDate;
+    private SmartFridgeService smartFridgeService;
+
+    public SmartFridge(SmartFridgeService smartFridgeService) {
+        this.smartFridgeService = smartFridgeService;
+    }
 
     @Override
     public void setCurrentDate(String currentDate) {
@@ -10,7 +15,7 @@ public class SmartFridge implements Fridge{
 
     @Override
     public void signalFridgeDoorOpened() {
-        throw new UnsupportedOperationException();
+        smartFridgeService.openDoor();
     }
 
     @Override
