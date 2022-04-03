@@ -4,10 +4,12 @@ public class SmartFridge implements Fridge{
     public String currentDate;
     private SmartFridgeService smartFridgeService;
     private SmartFridgeRepository smartFridgeRepository;
+    private ItemsPrinter itemsPrinter;
 
-    public SmartFridge(SmartFridgeService smartFridgeService, SmartFridgeRepository smartFridgeRepository) {
+    public SmartFridge(SmartFridgeService smartFridgeService, SmartFridgeRepository smartFridgeRepository, ItemsPrinter itemsPrinter) {
         this.smartFridgeService = smartFridgeService;
         this.smartFridgeRepository = smartFridgeRepository;
+        this.itemsPrinter = itemsPrinter;
     }
 
     @Override
@@ -43,6 +45,6 @@ public class SmartFridge implements Fridge{
 
     @Override
     public void showDisplay() {
-        throw new UnsupportedOperationException();
+        itemsPrinter.print(smartFridgeRepository.getItems());
     }
 }

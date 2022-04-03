@@ -13,16 +13,14 @@ public class SmartFridgeShould {
     private SmartFridge fridge;
     private SmartFridgeService smartFridgeService;
     private SmartFridgeRepository smartFridgeRepository;
-    private ConsolePrinter printer;
     private ItemsPrinter itemsPrinter;
 
     @BeforeEach
     void setUp() {
         smartFridgeService = mock(SmartFridgeService.class);
         smartFridgeRepository = mock(SmartFridgeRepository.class);
-        fridge = new SmartFridge(smartFridgeService, smartFridgeRepository);
-        printer = mock(ConsolePrinter.class);
         itemsPrinter = mock(ItemsPrinter.class);
+        fridge = new SmartFridge(smartFridgeService, smartFridgeRepository, itemsPrinter);
     }
 
     @Test
