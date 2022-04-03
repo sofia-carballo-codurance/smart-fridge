@@ -14,7 +14,7 @@ public class AcceptanceShould {
             Cheese: 31 days remaining
             """;
 
-        var smartFridge = new SmartFridge(new SmartFridgeService());
+        var smartFridge = new SmartFridge(new SmartFridgeService(), new SmartFridgeRepository());
         var printer = new TerminalPrinter();
         smartFridge.setCurrentDate("18/10/2021");
         smartFridge.signalFridgeDoorOpened();

@@ -16,7 +16,7 @@ public class SmartFridgeShould {
     void setUp() {
         smartFridgeService = mock(SmartFridgeService.class);
         smartFridgeRepository = mock(SmartFridgeRepository.class);
-        fridge = new SmartFridge(smartFridgeService);
+        fridge = new SmartFridge(smartFridgeService, smartFridgeRepository);
     }
 
     @Test

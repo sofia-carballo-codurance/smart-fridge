@@ -3,9 +3,11 @@ package kata;
 public class SmartFridge implements Fridge{
     public String currentDate;
     private SmartFridgeService smartFridgeService;
+    private SmartFridgeRepository smartFridgeRepository;
 
-    public SmartFridge(SmartFridgeService smartFridgeService) {
+    public SmartFridge(SmartFridgeService smartFridgeService, SmartFridgeRepository smartFridgeRepository) {
         this.smartFridgeService = smartFridgeService;
+        this.smartFridgeRepository = smartFridgeRepository;
     }
 
     @Override
@@ -25,7 +27,7 @@ public class SmartFridge implements Fridge{
 
     @Override
     public void scanAddedItem(String name, String expiryDate, String status) {
-        throw new UnsupportedOperationException();
+        smartFridgeRepository.addItem();
     }
 
     @Override
