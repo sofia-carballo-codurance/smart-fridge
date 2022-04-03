@@ -1,7 +1,5 @@
 package kata;
 
-import java.util.Date;
-
 public class SmartFridge implements Fridge{
     public String currentDate;
 
