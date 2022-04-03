@@ -1,45 +1,38 @@
 package kata;
 
-public class SmartFridge implements Fridge {
-
-    private ItemRepository itemRepository;
-
-    public SmartFridge(ItemRepository itemRepository) {
-        this.itemRepository = itemRepository;
-    }
-
+public class SmartFridge implements Fridge{
     @Override
-    public void setCurrentDate() {
+    public void setCurrentDate(String currentDate) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void signalFridgeDoorOpened() {
-        itemRepository.alertDoorOpened();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void signalFridgeDoorClosed() {
-        itemRepository.alertDoorClosed();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void scanAddedItem(String name, String expiryDate, String status) {
-        itemRepository.addItem(name, expiryDate, status);
-    }
-
-    @Override
-    public void simulateDayOver() {
-        itemRepository.startDay();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void scanRemovedItem(String name) {
-        itemRepository.removeItem(name);
+        throw new UnsupportedOperationException();
     }
 
     @Override
-    public String showDisplay() {
+    public void simulateDayOver() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void showDisplay() {
         throw new UnsupportedOperationException();
     }
 }

@@ -14,7 +14,9 @@ public class AcceptanceShould {
             Cheese: 31 days remaining
             """;
 
-        var smartFridge = new SmartFridge(new ItemRepository());
+        var smartFridge = new SmartFridge();
+        var printer = new TerminalPrinter();
+        smartFridge.setCurrentDate("18/10/2021");
         smartFridge.signalFridgeDoorOpened();
         smartFridge.scanAddedItem("Milk", "21/10/21", "sealed");
         smartFridge.scanAddedItem("Cheese", "18/11/21", "sealed");
@@ -44,9 +46,8 @@ public class AcceptanceShould {
         smartFridge.signalFridgeDoorOpened();
         smartFridge.signalFridgeDoorClosed();
         smartFridge.simulateDayOver();
+        smartFridge.showDisplay();
 
-        String result = smartFridge.showDisplay();
-
-        assertEquals(expectedOut, result);
+        assertEquals(expectedOut, printer.print());
     }
 }
