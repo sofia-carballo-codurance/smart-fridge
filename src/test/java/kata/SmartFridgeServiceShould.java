@@ -7,19 +7,21 @@ import org.mockito.Mock;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
 
 public class SmartFridgeServiceShould {
 
-  @Mock SmartFridgeRepository smartFridgeRepository;
-  @Mock ItemDegrader itemDegrader;
+  SmartFridgeRepository smartFridgeRepository;
+  ItemDegrader itemDegrader;
   private SmartFridgeService smartFridgeService;
 
-  @BeforeEach
-  void setUp() {
-    smartFridgeService = new SmartFridgeService();
-  }
+   @BeforeEach
+    void setUp() {
+       smartFridgeRepository = mock(SmartFridgeRepository.class);
+       itemDegrader = mock(ItemDegrader.class);
+       smartFridgeService = new SmartFridgeService();
+   }
 
   @Test
   void call_item_degrader_when_door_is_opened() {
