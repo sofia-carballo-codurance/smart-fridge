@@ -1,10 +1,13 @@
 package kata;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SmartFridgeRepository {
-    public static List<Item> getItems() {
-        throw new UnsupportedOperationException();
+    private List<Item> items = new ArrayList<>();
+
+    public List<Item> getItems() {
+        return this.items;
     }
 
     public void addItem(String name, String expiryDate, String status) {

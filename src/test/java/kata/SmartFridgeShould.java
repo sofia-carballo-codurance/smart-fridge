@@ -62,11 +62,12 @@ public class SmartFridgeShould {
         verify(smartFridgeService).startNewDay(fridge.currentDate);
     }
 
+
     @Test void
     print_fridge_items() {
         List<Item> items = new ArrayList<>();
 
-        when(SmartFridgeRepository.getItems()).thenReturn(items);
+        when(smartFridgeRepository.getItems()).thenReturn(items);
         fridge.showDisplay();
 
         verify(itemsPrinter).print(items);
