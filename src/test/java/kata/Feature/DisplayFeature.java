@@ -12,7 +12,7 @@ public class DisplayFeature {
 
     @Test void
     display_fridge_items() {
-        var smartFridge = new SmartFridge(new SmartFridgeService(), new SmartFridgeRepository(), new ItemsPrinter(consolePrinter));
+        var smartFridge = new SmartFridge(new SmartFridgeService(new ItemDegrader(), new SmartFridgeRepository()), new ItemsPrinter(consolePrinter));
         smartFridge.setCurrentDate("18/10/2021");
         smartFridge.signalFridgeDoorOpened();
         smartFridge.scanAddedItem("Milk", "21/10/21", "sealed");

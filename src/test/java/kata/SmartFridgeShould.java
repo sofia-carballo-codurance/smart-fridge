@@ -12,15 +12,13 @@ import static org.mockito.Mockito.*;
 public class SmartFridgeShould {
     private SmartFridge fridge;
     private SmartFridgeService smartFridgeService;
-    private SmartFridgeRepository smartFridgeRepository;
     private ItemsPrinter itemsPrinter;
 
     @BeforeEach
     void setUp() {
         smartFridgeService = mock(SmartFridgeService.class);
-        smartFridgeRepository = mock(SmartFridgeRepository.class);
         itemsPrinter = mock(ItemsPrinter.class);
-        fridge = new SmartFridge(smartFridgeService, smartFridgeRepository, itemsPrinter);
+        fridge = new SmartFridge(smartFridgeService, itemsPrinter);
     }
 
     @Test
@@ -47,13 +45,13 @@ public class SmartFridgeShould {
     @Test void
     add_item_to_fridge() {
         fridge.scanAddedItem("Milk", "10/04/2022", "sealed");
-        verify(smartFridgeRepository).addItem("Milk", "10/04/2022", "sealed");
+        verify(smartFridgeService).add("Milk", "10/04/2022", "sealed");
     }
 
     @Test void
     remove_item_from_fridge() {
         fridge.scanRemovedItem("Milk");
-        verify(smartFridgeRepository).removeItem("Milk");
+        verify(smartFridgeService).remove("Milk");
     }
 
     @Test void
@@ -67,7 +65,7 @@ public class SmartFridgeShould {
     print_fridge_items() {
         List<Item> items = new ArrayList<>();
 
-        when(smartFridgeRepository.getItems()).thenReturn(items);
+        when(smartFridgeService.getItems()).thenReturn(items);
         fridge.showDisplay();
 
         verify(itemsPrinter).print(items);
